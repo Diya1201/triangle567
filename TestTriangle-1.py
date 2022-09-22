@@ -17,14 +17,24 @@ from Triangle1 import classifyTriangle
 class TestTriangles(unittest.TestCase):
     # define multiple sets of tests as functions with names that begin
 
-    def testRightTriangleA(self): 
+    def testRightTriangle(self): 
         self.assertEqual(classifyTriangle(3,4,5),'Right','3,4,5 is a Right triangle')
+        return 'Passed'
 
-    def testRightTriangleB(self): 
-        self.assertEqual(classifyTriangle(5,3,4),'Right','5,3,4 is a Right triangle')
+    def testScaleneTriangle(self): 
+        self.assertEqual(classifyTriangle(5,3,4),'Scalene','5,3,4 is a Right triangle')
+        return 'Passed'
+
         
     def testEquilateralTriangles(self): 
         self.assertEqual(classifyTriangle(1,1,1),'Equilateral','1,1,1 should be equilateral')
+        return 'Passed'
+
+    
+    def testIsocelesTriangle(self):
+        self.assertEqual(classifyTriangle(2,3,3),'Isosceles','1,1,1 should be Isosceles')
+        return 'Passed'
+
 
 if __name__ == '__main__':
     print('Running unit tests')

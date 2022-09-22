@@ -43,15 +43,16 @@ def classifyTriangle(a,b,c):
     # is important for correctness
     # the sum of any two sides must be strictly less than the third side
     # of the specified shape is not a triangle
-    if (a >= (b - c)) or (b >= (a - c)) or (c >= (a + b)):
+    if (a > (b + c)) or (b > (a + c)) or (c > (a + b)):
         return 'NotATriangle'
         
     # now we know that we have a valid triangle 
     if a == b and b == a:
         return 'Equilateral'
-    elif ((a * 2) + (b * 2)) == (c * 2):
-        return 'Right'
-    elif (a != b) and  (b != c) and (a != b):
-        return 'Scalene'
+    if (a != b) and  (b != c) and (a != b):
+          if ((a^2) + (b^2)) == (c^2):
+           return 'Right'
+          else:
+           return 'Scalene'
     else:
-        return 'Isoceles'
+        return 'Isosceles'
